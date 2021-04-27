@@ -1,0 +1,2 @@
+recursive-include tutorwebui/patches *
+recursive-include tutorwebui/templates *
