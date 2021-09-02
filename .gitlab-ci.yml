@@ -2,6 +2,7 @@ variables:
     TUTOR_PLUGIN: webui
     TUTOR_PYPI_PACKAGE: tutor-webui
     OPENEDX_RELEASE: lilac
+    GITHUB_REPO: overhangio/tutor-webui
 
 include:
   - project: 'community/tutor-ci'
