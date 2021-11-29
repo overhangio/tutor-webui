@@ -16,32 +16,9 @@ from tutor import fmt
 from tutor import env as tutor_env
 from tutor import exceptions
 from tutor import serialize
+from tutor.commands.cli import cli
 from tutor.types import Config
 from tutor.commands.context import Context
-
-from tutor.commands.cli import cli
-
-
-@click.command(
-    short_help="Interactive shell",
-    help="Launch an interactive shell for launching Tutor commands",
-)
-def ui() -> None:
-    click.echo(
-        """Welcome to the Tutor interactive shell UI!
-Type "help" to view all available commands.
-Type "local quickstart" to configure and launch a new platform from scratch.
-Type <ctrl-d> to exit."""
-    )
-    click_repl.register_repl(cli, name="ui")
-
-    while True:
-        try:
-            cli()
-            # click_repl.repl(click.get_current_context())
-            return  # this happens on a ctrl+d
-        except Exception:  # pylint: disable=broad-except
-            pass
 
 
 @click.group(
@@ -88,7 +65,7 @@ def start(context: Context, port: int, host: str) -> None:
             fmt.echo_alert(
                 "Running web UI without user authentication. Run 'tutor webui configure' to setup authentication"
             )
-        command += [sys.argv[0], "ui"]
+        command += [sys.argv[0], "shell"]
         p = subprocess.Popen(command)
         while True:
             try:
@@ -122,6 +99,29 @@ def configure(context: Context, user: str, password: str) -> None:
         "If at any point you wish to reset your username and password, "
         "just delete the following file:\n\n    {}".format(config_path(context.root))
     )
+
+
+@cli.command(
+    short_help="Interactive shell",
+    help="Launch an interactive shell for launching Tutor commands",
+)
+def shell() -> None:
+    click.echo(
+        """Welcome to the Tutor interactive shell UI!
+Type "help" to view all available commands.
+Type "local quickstart" to configure and launch a new platform from scratch.
+Type <ctrl-d> to exit."""
+    )
+    while True:
+        try:
+            click_repl.repl(click.get_current_context())
+            return  # this happens on a ctrl+d
+        except exceptions.TutorError as e:
+            fmt.echo_error("Error: {}".format(e.args[0]))
+        except KeyboardInterrupt:
+            pass
+        except Exception as e:  # pylint: disable=broad-except
+            print(e)
 
 
 def check_gotty_binary(root: str) -> None:
@@ -182,6 +182,5 @@ def get_path(root: str, filename: str) -> str:
     return tutor_env.pathjoin(root, "webui", filename)
 
 
-cli.add_command(ui)
 webui.add_command(start)
 webui.add_command(configure)

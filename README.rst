@@ -31,6 +31,10 @@ All ``tutor`` commands can be executed from this web UI: you just don't need to 
 
 instead of ``tutor local quickstart``.
 
+Instead of running the interactive `repl <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>`__ in a web browser, you can also run tutor interactively directly from your shell::
+
+    tutor shell
+
 Authentication
 ~~~~~~~~~~~~~~
 
