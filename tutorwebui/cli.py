@@ -43,7 +43,7 @@ def webui() -> None:
 @click.pass_obj
 def start(context: Context, port: int, host: str) -> None:
     check_gotty_binary(context.root)
-    fmt.echo_info("Access the Tutor web UI at http://{}:{}".format(host, port))
+    fmt.echo_info(f"Access the Tutor web UI at http://{host}:{port}")
     while True:
         config = load_config(context.root)
         user = config["user"]
@@ -59,7 +59,7 @@ def start(context: Context, port: int, host: str) -> None:
             "Tutor web UI - {{ .Command }} ({{ .Hostname }})",
         ]
         if user and password:
-            credential = "{}:{}".format(user, password)
+            credential = f"{user}:{password}"
             command += ["--credential", credential]
         else:
             fmt.echo_alert(
@@ -95,9 +95,9 @@ def start(context: Context, port: int, host: str) -> None:
 def configure(context: Context, user: str, password: str) -> None:
     save_webui_config_file(context.root, {"user": user, "password": password})
     fmt.echo_info(
-        "The web UI configuration has been updated. "
-        "If at any point you wish to reset your username and password, "
-        "just delete the following file:\n\n    {}".format(config_path(context.root))
+        f"The web UI configuration has been updated. "
+        f"If at any point you wish to reset your username and password, "
+        f"just delete the following file:\n\n    {config_path(context.root)}"
     )
 
 
@@ -117,7 +117,7 @@ Type <ctrl-d> to exit."""
             click_repl.repl(click.get_current_context())
             return  # this happens on a ctrl+d
         except exceptions.TutorError as e:
-            fmt.echo_error("Error: {}".format(e.args[0]))
+            fmt.echo_error(f"Error: {e.args[0]}")
         except KeyboardInterrupt:
             pass
         except Exception as e:  # pylint: disable=broad-except
@@ -128,14 +128,12 @@ def check_gotty_binary(root: str) -> None:
     path = gotty_path(root)
     if os.path.exists(path):
         return
-    fmt.echo_info("Downloading gotty to {}...".format(path))
+    fmt.echo_info(f"Downloading gotty to {path}...")
 
     # Generate release url
     # Note: I don't know how to handle arm
     architecture = "amd64" if platform.architecture()[0] == "64bit" else "386"
-    url = "https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_{system}_{architecture}.tar.gz".format(
-        system=platform.system().lower(), architecture=architecture
-    )
+    url = f"https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_{platform.system().lower()}_{architecture}.tar.gz"
 
     # Download
     response = urlopen(url)
@@ -152,11 +150,11 @@ def load_config(root: str) -> Dict[str, Optional[str]]:
     path = config_path(root)
     if not os.path.exists(path):
         save_webui_config_file(root, {"user": None, "password": None})
-    with open(config_path(root)) as f:
+    with open(config_path(root), encoding="utf-8") as f:
         config = serialize.load(f)
     if not isinstance(config, dict):
         raise exceptions.TutorError(
-            "Invalid webui: expected dict, got {}".format(config.__class__)
+            f"Invalid webui: expected dict, got {config.__class__}"
         )
     return config
 
@@ -166,7 +164,7 @@ def save_webui_config_file(root: str, config: Config) -> None:
     directory = os.path.dirname(path)
     if not os.path.exists(directory):
         os.makedirs(directory)
-    with open(path, "w") as of:
+    with open(path, "w", encoding="utf-8") as of:
         serialize.dump(config, of)
 
 
