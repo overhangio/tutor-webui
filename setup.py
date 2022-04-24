@@ -39,9 +39,9 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.5",
-    install_requires=["tutor>=13.0.0,<14.0.0", "click_repl>=0.2.0"],
+    install_requires=["tutor>=13.2.0,<14.0.0", "click_repl>=0.2.0"],
     entry_points={
-        "tutor.plugin.v0": ["webui = tutorwebui.plugin"],
+        "tutor.plugin.v1": ["webui = tutorwebui.plugin"],
     },
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -49,8 +49,6 @@ setup(
         "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",

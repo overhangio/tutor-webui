@@ -16,7 +16,6 @@ from tutor import fmt
 from tutor import env as tutor_env
 from tutor import exceptions
 from tutor import serialize
-from tutor.commands.cli import cli
 from tutor.types import Config
 from tutor.commands.context import Context
 
@@ -101,7 +100,7 @@ def configure(context: Context, user: str, password: str) -> None:
     )
 
 
-@cli.command(
+@click.command(
     short_help="Interactive shell",
     help="Launch an interactive shell for launching Tutor commands",
 )
@@ -112,9 +111,15 @@ Type "help" to view all available commands.
 Type "local quickstart" to configure and launch a new platform from scratch.
 Type <ctrl-d> to exit."""
     )
+    # We need to manually patch the TutorCli object because click_repl
+    # incorrectly calls the `commands` attribute. Note that this enables us to
+    # run shell within shell, which is cool but a little weird...
+    ctx = click.get_current_context()
+    ctx.parent.command.commands = {}
+
     while True:
         try:
-            click_repl.repl(click.get_current_context())
+            click_repl.repl(ctx)
             return  # this happens on a ctrl+d
         except exceptions.TutorError as e:
             fmt.echo_error(f"Error: {e.args[0]}")
@@ -122,6 +127,7 @@ Type <ctrl-d> to exit."""
             pass
         except Exception as e:  # pylint: disable=broad-except
             print(e)
+            raise e
 
 
 def check_gotty_binary(root: str) -> None:
