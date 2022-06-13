@@ -1,7 +1,7 @@
 variables:
     TUTOR_PLUGIN: webui
     TUTOR_PYPI_PACKAGE: tutor-webui
-    OPENEDX_RELEASE: maple
+    OPENEDX_RELEASE: nutmeg
     GITHUB_REPO: overhangio/tutor-webui
 
 include:
