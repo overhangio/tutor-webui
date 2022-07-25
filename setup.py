@@ -29,8 +29,8 @@ setup(
     version=ABOUT["__version__"],
     url="https://overhang.io/overhangio/tutor-webui",
     project_urls={
-        "Code": "https://overhang.io/overhangio/tutor-webui",
-        "Issue tracker": "https://overhang.io/overhangio/tutor-webui/issues",
+        "Code": "https://github.com/overhangio/tutor-webui",
+        "Issue tracker": "https://github.com/overhangio/tutor-webui/issues",
     },
     license="AGPLv3",
     author="Overhang.IO",
