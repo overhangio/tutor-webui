@@ -108,7 +108,7 @@ def shell() -> None:
     click.echo(
         """Welcome to the Tutor interactive shell UI!
 Type "help" to view all available commands.
-Type "local quickstart" to configure and launch a new platform from scratch.
+Type "local launch" to configure and launch a new platform from scratch.
 Type <ctrl-d> to exit."""
     )
     # We need to manually patch the TutorCli object because click_repl
