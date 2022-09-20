@@ -27,9 +27,9 @@ You can then access the interface at http://localhost:3737, or http://youserveru
 
 All ``tutor`` commands can be executed from this web UI: you just don't need to prefix the commands with ``tutor``. For instance, to deploy a local Open edX instance, run::
 
-    local quickstart
+    local launch
 
-instead of ``tutor local quickstart``.
+instead of ``tutor local launch``.
 
 Instead of running the interactive `repl <https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop>`__ in a web browser, you can also run tutor interactively directly from your shell::
 
