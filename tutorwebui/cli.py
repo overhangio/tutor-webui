@@ -20,6 +20,10 @@ from tutor.types import Config
 from tutor.commands.context import Context
 
 
+# Check if it was upgraded since 2017
+# https://github.com/yudai/gotty/releases
+GOTTY_RELEASE = "v1.0.1"
+
 @click.group(
     short_help="Web user interface", help="""Run Tutor commands from a web terminal"""
 )
@@ -139,7 +143,7 @@ def check_gotty_binary(root: str) -> None:
     # Generate release url
     # Note: I don't know how to handle arm
     architecture = "amd64" if platform.architecture()[0] == "64bit" else "386"
-    url = f"https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_{platform.system().lower()}_{architecture}.tar.gz"
+    url = f"https://github.com/yudai/gotty/releases/download/{GOTTY_RELEASE}/gotty_{platform.system().lower()}_{architecture}.tar.gz"
 
     # Download
     response = urlopen(url)
