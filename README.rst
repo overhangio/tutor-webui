@@ -8,7 +8,7 @@ Installation
 
 ::
 
-    pip install tutor-webui
+    tutor plugins install webui
 
 Usage
 -----
