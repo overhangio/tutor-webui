@@ -139,8 +139,13 @@ def check_gotty_binary(root: str) -> None:
     fmt.echo_info(f"Downloading gotty to {path}...")
 
     # Generate release url
-    # Note: I don't know how to handle arm
-    architecture = "amd64" if platform.architecture()[0] == "64bit" else "386"
+    architecture_map = {"x86_64": "amd64", "i386": "386", "aarch64": "arm64"}
+    architecture = architecture_map.get(platform.uname().machine)
+    if not architecture:
+        raise exceptions.TutorError(
+            f"Unsupported architecture: {platform.uname().machine}"
+        )
+
     url = (
         f"https://github.com/sorenisanerd/gotty/releases/download/{GOTTY_RELEASE}/"
         f"gotty_{GOTTY_RELEASE}_{platform.system().lower()}_{architecture}.tar.gz"
