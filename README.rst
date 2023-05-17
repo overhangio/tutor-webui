@@ -52,4 +52,4 @@ License
 
 This software is licensed under the terms of the AGPLv3.
 
-This project depends on the `Gotty <https://github.com/yudai/gotty/>`_ binary, which is provided under the terms of the `MIT license <https://github.com/yudai/gotty/blob/master/LICENSE>`_.
+This project depends on the `Gotty <https://github.com/sorenisanerd/gotty/>`_ binary, which is provided under the terms of the `MIT license <https://github.com/sorenisanerd/gotty/blob/master/LICENSE>`_.
