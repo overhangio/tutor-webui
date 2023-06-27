@@ -49,7 +49,7 @@ setup(
         "tutor.plugin.v1": ["webui = tutorwebui.plugin"],
     },
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: OS Independent",
