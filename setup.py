@@ -26,7 +26,7 @@ ABOUT = load_about()
 
 setup(
     name="tutor-webui",
-    version=ABOUT["__version__"],
+    version=ABOUT["__package_version__"],
     url="https://overhang.io/overhangio/tutor-webui",
     project_urls={
         "Documentation": "https://docs.tutor.overhang.io/",
