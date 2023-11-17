@@ -1,7 +1,7 @@
 variables:
     TUTOR_PLUGIN: webui
     TUTOR_PYPI_PACKAGE: tutor-webui
-    OPENEDX_RELEASE: palm
+    OPENEDX_RELEASE: quince
     GITHUB_REPO: overhangio/tutor-webui
 
 include:

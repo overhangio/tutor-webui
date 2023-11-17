@@ -117,8 +117,7 @@ Type <ctrl-d> to exit."""
     # incorrectly calls the `commands` attribute. Note that this enables us to
     # run shell within shell, which is cool but a little weird...
     ctx = click.get_current_context()
-    ctx.parent.command.commands = {}
-
+    
     while True:
         try:
             click_repl.repl(ctx)
