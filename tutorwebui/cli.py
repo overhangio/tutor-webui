@@ -113,9 +113,8 @@ Type "help" to view all available commands.
 Type "local launch" to configure and launch a new platform from scratch.
 Type <ctrl-d> to exit."""
     )
-    # We need to manually patch the TutorCli object because click_repl
-    # incorrectly calls the `commands` attribute. Note that this enables us to
-    # run shell within shell, which is cool but a little weird...
+    # Retrieve the current Click context. The context is used to manage the state
+    # and pass around internal objects within the Click framework.
     ctx = click.get_current_context()
     
     while True:
