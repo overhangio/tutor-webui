@@ -1,4 +1,4 @@
-WebUI plugin for `Tutor <https://docs.tutor.overhang.io>`__
+WebUI plugin for `Tutor <https://docs.tutor.edly.io>`__
 ============================================================
 
 This is a plugin for Tutor that allows you to manage a Tutor-powered `Open edX <https://open.edx.org/>`__ installation from a browser -- a web user interface! In other words, it is no longer necessary to SSH to a remote server to manage a running instance.
@@ -45,7 +45,7 @@ Authentication
 Troubleshooting
 ---------------
 
-This Tutor plugin is maintained by Hina Khadim from `Edly <https://edly.io>`__. Community support is available from the official `Open edX forum <https://discuss.openedx.org>`__. Do you need help with this plugin? See the `troubleshooting <https://docs.tutor.overhang.io/troubleshooting.html>`__ section from the Tutor documentation.
+This Tutor plugin is maintained by Hina Khadim from `Edly <https://edly.io>`__. Community support is available from the official `Open edX forum <https://discuss.openedx.org>`__. Do you need help with this plugin? See the `troubleshooting <https://docs.tutor.edly.io/troubleshooting.html>`__ section from the Tutor documentation.
 
 License
 -------
