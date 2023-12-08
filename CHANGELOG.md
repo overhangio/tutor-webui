@@ -19,3 +19,9 @@ instructions, because git commits are used to generate release notes:
 
 <!-- scriv-insert-here -->
 
+<a id='changelog-16.0.1'></a>
+## v16.0.1 (2023-12-08)
+
+- [Improvement] Add a scriv-compliant changelog. (by @regisb)
+- [Improvement] Added Makefile and test action to repository and formatted code with Black and isort. (by @CodeWithEmad)
+
