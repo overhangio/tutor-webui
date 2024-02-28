@@ -116,7 +116,7 @@ Type <ctrl-d> to exit."""
     # Retrieve the current Click context. The context is used to manage the state
     # and pass around internal objects within the Click framework.
     ctx = click.get_current_context()
-    
+
     while True:
         try:
             click_repl.repl(ctx)
