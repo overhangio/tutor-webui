@@ -19,6 +19,11 @@ instructions, because git commits are used to generate release notes:
 
 <!-- scriv-insert-here -->
 
+<a id='changelog-17.0.1'></a>
+## v17.0.1 (2024-06-18)
+
+- [Bugfix] Fix command clearing in context parent, simplifying the context handling. (by @Abdul-Muqadim-Arbisoft)
+
 <a id='changelog-17.0.0'></a>
 ## v17.0.0 (2023-12-09)
 
