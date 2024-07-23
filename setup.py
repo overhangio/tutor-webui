@@ -41,6 +41,7 @@ setup(
     maintainer_email="hina.khadim@arbisoft.com",
     description="Web-based user interface plugin for Tutor",
     long_description=load_readme(),
+    long_description_content_type="text/x-rst",
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.8",
