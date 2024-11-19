@@ -50,6 +50,6 @@ This Tutor plugin is maintained by Hina Khadim from `Edly <https://edly.io>`__. 
 License
 -------
 
-This software is licensed under the terms of the AGPLv3.
+This work is licensed under the terms of the `GNU Affero General Public License (AGPL) <https://github.com/overhangio/tutor-webui/blob/release/LICENSE.txt>`_.
 
 This project depends on the `Gotty <https://github.com/sorenisanerd/gotty/>`_ binary, which is provided under the terms of the `MIT license <https://github.com/sorenisanerd/gotty/blob/master/LICENSE>`_.
