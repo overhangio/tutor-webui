@@ -23,7 +23,7 @@ instructions, because git commits are used to generate release notes:
 ## v20.0.0 (2025-04-06)
 
 - [Improvement] Migrate packaging from setup.py/setuptools to pyproject.toml/hatch. (by @Abdul-Muqadim-Arbisoft)
-  - For more details view tutor core PR: https://github.com/overhangio/tutor/pull/1163scriv
+  - For more details view tutor core PR: https://github.com/overhangio/tutor/pull/1163
 
 - [Improvement] Add hatch_build.py in sdist target to fix the installation issues (by @dawoudsheraz)
 
