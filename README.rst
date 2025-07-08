@@ -1,3 +1,8 @@
+⛔️ WARNING
+===========
+
+This plugin is deprecated. For more details, please refer to the `tutor-webui DEPR ticket <https://github.com/overhangio/tutor-webui/issues/28>`_.
+
 WebUI plugin for `Tutor <https://docs.tutor.edly.io>`__
 ============================================================
 
